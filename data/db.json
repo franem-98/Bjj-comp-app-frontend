@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Split Open",
+      "location": "Split, Croatia",
+      "date": "Today",
+      "registeredCompetitors": 150,
+      "registrationFee": 25,
+      "description": ""
+    }
+  ],
+  "competitors": [],
+  "academies": []
+}

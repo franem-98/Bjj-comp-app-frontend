@@ -4,7 +4,7 @@ import navBarStyles from "../styles/NavBar.module.css";
 const NavBar = () => {
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-light ${navBarStyles.nav}`}
+      className={`navbar-expand-lg navbar-light bg-light ${navBarStyles.nav}`}
     >
       <button
         className="navbar-toggler"
