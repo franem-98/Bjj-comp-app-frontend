@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import http from "../services/httpService";
+import NewButton from "../../components/common/NewButton";
+import http from "../../services/httpService";
 import { BsImage } from "react-icons/bs";
 
 const Events = () => {
@@ -15,8 +16,9 @@ const Events = () => {
   }, []);
 
   return (
-    <>
-      <table className="table">
+    <div>
+      <NewButton label="New event" href="/events/new" />
+      <table className={`table `}>
         <tbody>
           {events.map(
             ({
@@ -41,7 +43,7 @@ const Events = () => {
           )}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 
