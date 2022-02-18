@@ -1,6 +1,7 @@
-const Input = ({ name, error, ...rest }) => {
+const Input = ({ name, error, label, ...rest }) => {
   return (
-    <div className="mb-3">
+    <div key={name} className="mb-3">
+      <label htmlFor={name}>{label}</label>
       <input
         {...rest}
         name={name}

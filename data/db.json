@@ -9,6 +9,15 @@
       "registrationFee": 25,
       "description": "",
       "gi/nogi": "gi"
+    },
+    {
+      "name": "Split Open 2022",
+      "location": "Split, Croatia",
+      "date": "22.02.2022.",
+      "registrationFee": "30",
+      "description": "Danko jebe svima mater",
+      "giNoGiId": "Gi",
+      "id": 2
     }
   ],
   "competitors": [],
