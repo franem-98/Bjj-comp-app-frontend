@@ -14,6 +14,7 @@ const Form = ({
   buttonLabel,
   schema,
   populatedForm,
+  submitAction,
 }) => {
   const [data, setData] = useState(initialData);
   const [errors, setErrors] = useState({});
@@ -107,7 +108,7 @@ const Form = ({
   };
 
   const doSubmit = async () => {
-    await saveMovie(data);
+    await submitAction(data);
 
     navigate("/movies");
   };
