@@ -1,6 +1,6 @@
 const Input = ({ name, error, label, ...rest }) => {
   return (
-    <div key={name} className="mb-3">
+    <div className="mb-3">
       <label htmlFor={name}>{label}</label>
       <input
         {...rest}

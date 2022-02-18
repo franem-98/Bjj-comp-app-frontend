@@ -1,6 +1,6 @@
 const Select = ({ name, label, options, error, ...rest }) => {
   return (
-    <div key={name} className="form-group">
+    <div className="form-group">
       <label htmlFor={name}>{label}</label>
       <select name={name} id={name} {...rest} className="form-control">
         <option value="" />
