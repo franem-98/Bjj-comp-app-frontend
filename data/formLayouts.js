@@ -1,7 +1,9 @@
-const layouts = {
-  eventLayout: [],
-  competitorLayout: [],
-  academyLayout: [],
-};
-
-export default layouts;
+export function eventLayout() {
+  return [];
+}
+export function competitorLayout() {
+  return [];
+}
+export function academyLayout() {
+  return [];
+}
