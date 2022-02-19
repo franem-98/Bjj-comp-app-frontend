@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import NewButton from "../../components/common/NewButton";
-import http from "../../services/httpService";
+import DeleteButton from "../../components/common/DeleteButton";
+import { deleteEvent, getEvents } from "../../services/eventService";
 import { BsImage } from "react-icons/bs";
 
 const Events = () => {
@@ -8,12 +9,23 @@ const Events = () => {
 
   useEffect(() => {
     const onMount = async () => {
-      const { data: newEvents } = await http.get("/events");
+      const { data: newEvents } = await getEvents();
       setEvents(newEvents);
     };
 
     onMount();
   }, []);
+
+  const handleDelete = async (id) => {
+    const oldEvents = events;
+    const newEvents = oldEvents.filter((event) => event.id !== id);
+    setEvents(newEvents);
+    try {
+      await deleteEvent(id);
+    } catch (err) {
+      if (err.response && err.response.status === 404) setEvents(oldEvents);
+    }
+  };
 
   return (
     <div>
@@ -38,6 +50,9 @@ const Events = () => {
                 <td>Date: {date}</td>
                 <td>Registered competitors: {registeredCompetitors}</td>
                 <td>Registration fee: ${registrationFee}</td>
+                <td>
+                  <DeleteButton onDelete={() => handleDelete(id)} />
+                </td>
               </tr>
             )
           )}

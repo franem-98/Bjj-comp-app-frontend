@@ -1,23 +1,14 @@
 {
   "events": [
     {
-      "id": 1,
-      "name": "Split Open",
+      "name": "Split Open 2023",
       "location": "Split, Croatia",
-      "date": "Today",
-      "registeredCompetitors": 150,
-      "registrationFee": 25,
-      "description": "",
-      "gi/nogi": "gi"
-    },
-    {
-      "name": "Split Open 2022",
-      "location": "Split, Croatia",
-      "date": "22.02.2022.",
-      "registrationFee": "30",
+      "date": "05/02/2022",
+      "registeredCompetitors": 0,
+      "registrationFee": "25",
       "description": "Danko jebe svima mater",
-      "giNoGiId": "Gi",
-      "id": 2
+      "giNoGiId": "NoGi",
+      "id": 4
     }
   ],
   "competitors": [],

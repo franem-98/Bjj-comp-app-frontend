@@ -8,6 +8,7 @@ const EventForm = () => {
     name: "",
     location: "",
     date: "",
+    registeredCompetitors: 0,
     registrationFee: 0,
     description: "",
     giNoGiId: "",
@@ -16,8 +17,9 @@ const EventForm = () => {
   const schema = Joi.object({
     name: Joi.string().required().min(1).max(50).label("Name"),
     location: Joi.string().required().min(1).max(50).label("Location"),
-    date: Joi.string().required().min(1).max(50).label("Date"),
+    date: Joi.string().required().label("Date"),
     registrationFee: Joi.number().required().label("Registration fee"),
+    registeredCompetitors: Joi.number().default(0),
     description: Joi.string().required().min(1).max(1000).label("Description"),
     giNoGiId: Joi.string().required().label("Gi/NoGi"),
   });
@@ -30,6 +32,7 @@ const EventForm = () => {
       buttonLabel="Save"
       schema={schema}
       submitAction={saveEvent}
+      navigateUrl="/events"
     />
   );
 };

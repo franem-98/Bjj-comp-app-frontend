@@ -2,7 +2,7 @@ export function eventLayout() {
   return [
     ["input", "name", "Name", "text"],
     ["input", "location", "Location", "text"],
-    ["input", "date", "Date", "text"],
+    ["dateSelect", "date", "Date"],
     ["input", "registrationFee", "Registration fee", "number"],
     ["input", "description", "Description", "text"],
     [

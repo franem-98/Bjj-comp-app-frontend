@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
-//import { useNavigate } from "react-router-dom";
 import Joi from "joi";
 import { useRouter } from "next/router";
-import http from "../../services/httpService";
 import Input from "./Input";
 import Select from "./Select";
-
-//FIX ISSUE WITH useNavigate!!!!!!!
+import DateSelect from "./DateSelect";
 
 const Form = ({
   formName,
@@ -16,10 +13,10 @@ const Form = ({
   schema,
   populatedForm,
   submitAction,
+  navigateUrl,
 }) => {
   const [data, setData] = useState(initialData);
   const [errors, setErrors] = useState({});
-  //const navigate = useNavigate();
   const router = useRouter();
   const { id } = router.query;
 
@@ -58,6 +55,10 @@ const Form = ({
         error={errors[name]}
       />
     );
+  };
+
+  const renderDateSelect = (name, label) => {
+    return <DateSelect key={name} label={label} onChange={handleDateChange} />;
   };
 
   const renderButton = (label) => {
@@ -101,6 +102,18 @@ const Form = ({
     setData(newData);
   };
 
+  const handleDateChange = (date) => {
+    const newErrors = { ...errors };
+    const errorMessage = validateProperty({ name: "date", value: date });
+    if (errorMessage) newErrors.date = errorMessage;
+    else delete newErrors.date;
+    setErrors(newErrors);
+
+    const newData = { ...data };
+    newData.date = date;
+    setData(newData);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = validate();
@@ -112,8 +125,7 @@ const Form = ({
 
   const doSubmit = async () => {
     await submitAction(data);
-
-    //navigate("/movies");
+    router.push(navigateUrl);
   };
 
   return (
@@ -125,6 +137,8 @@ const Form = ({
             return renderInput(prop[1], prop[2], prop[3]);
           else if (prop[0] === "select")
             return renderSelect(prop[1], prop[2], prop[3]);
+          else if (prop[0] === "dateSelect")
+            return renderDateSelect(prop[1], prop[2]);
         })}
         {renderButton(buttonLabel)}
       </form>
