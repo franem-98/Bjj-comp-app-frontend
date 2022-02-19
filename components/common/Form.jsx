@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Joi from "joi";
+import moment from "moment";
 import { useRouter } from "next/router";
 import Input from "./Input";
 import Select from "./Select";
@@ -58,7 +59,14 @@ const Form = ({
   };
 
   const renderDateSelect = (name, label) => {
-    return <DateSelect key={name} label={label} onChange={handleDateChange} />;
+    return (
+      <DateSelect
+        key={name}
+        label={label}
+        onChange={handleDateChange}
+        error={errors[name]}
+      />
+    );
   };
 
   const renderButton = (label) => {

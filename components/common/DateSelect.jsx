@@ -3,7 +3,7 @@ import moment from "moment";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateSelect = ({ name, label, onChange }) => {
+const DateSelect = ({ name, label, onChange, error }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
@@ -14,9 +14,10 @@ const DateSelect = ({ name, label, onChange }) => {
         selected={selectedDate}
         onChange={(date) => {
           setSelectedDate(date);
-          onChange(moment(date).format("DD/MM/YYYY"));
+          onChange(date);
         }}
       />
+      {error && <div className="alert alert-danger">{error}</div>}
     </div>
   );
 };
